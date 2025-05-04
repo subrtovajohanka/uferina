@@ -103,6 +103,29 @@
       font-size: 0.9rem;
       margin-top: 2rem;
     }
+    .cat {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 70px;
+  cursor: pointer;
+  animation: bounce 3s infinite;
+  transition: transform 0.3s ease;
+  z-index: 999;
+}
+
+.cat:hover {
+  transform: scale(1.2) rotate(-10deg);
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
   </style>
 </head>
 <body>
@@ -111,7 +134,6 @@
     <h1>U Ferina</h1>
     <p class="subtitle">Výrobky s láskou – co vyrostlo pod tlapkami a vařečkou 🐾</p>
   </header>
-
   <nav>
     <a href="index.html">Domů</a>
     <a href="zahradka.html">Ze zahrádky</a>
