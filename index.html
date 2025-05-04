@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>U Ferina</title>
-<link rel="icon" type="image/png" href="favicon-ferin-header.png">
-<link rel="icon" type="image/x-icon" href="favicon-ferin-header.ico">
+  <link rel="icon" type="image/png" href="favicon-ferin-header.png">
+  <link rel="icon" type="image/x-icon" href="favicon-ferin-header.ico">
   <style>
     body {
       font-family: 'Georgia', serif;
@@ -14,6 +14,7 @@
       margin: 0;
       padding: 0;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
     header {
       text-align: center;
@@ -35,6 +36,46 @@
     p.subtitle {
       font-size: 1.2rem;
       color: #a87c7c;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      background-color: #f8f2ec;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      text-decoration: none;
+      color: #7d5a5a;
+      padding: 0.5rem 1rem;
+      border: 2px solid #decfc4;
+      border-radius: 1rem;
+      background-color: #fffaf6;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #f0e5db;
+      top: 0;
+      left: -100%;
+      transition: left 0.3s ease;
+      z-index: 0;
+    }
+    nav a:hover::after {
+      left: 0;
+    }
+    nav a span {
+      position: relative;
+      z-index: 1;
     }
     main {
       padding: 2rem;
@@ -67,32 +108,22 @@
     li::before {
       content: "🌸 ";
     }
-
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-
     .flower {
       display: inline-block;
       animation: bloom 3s infinite alternate ease-in-out;
     }
-
     @keyframes bloom {
       from { transform: scale(0.9) rotate(-5deg); opacity: 0.8; }
       to { transform: scale(1.1) rotate(5deg); opacity: 1; }
     }
-
     .cat {
       position: fixed;
       bottom: 20px;
@@ -102,45 +133,49 @@
       animation: bounce 3s infinite;
       transition: transform 0.3s ease;
     }
-
     .cat:hover {
       transform: scale(1.2) rotate(-10deg);
     }
-
     @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
   </style>
 </head>
 <body>
   <header>
-<img src="ferin-header.png" alt="Ferin" style="max-width: 160px; display: block; margin: 0 auto 1rem;">
+    <img src="ferin-header.png" alt="Ferin" style="max-width: 160px; display: block; margin: 0 auto 1rem;">
     <h1>U Ferina</h1>
-    <p class="subtitle">Výrobky s láskou – co vyrostlo pod tlapkami a vařečkou🐾</p>
+    <p class="subtitle">Výrobky s láskou – co vyrostlo pod tlapkami a vařečkou 🐾</p>
   </header>
 
+  <nav>
+    <a href="#home"><span>Domů</span></a>
+    <a href="#zahradka"><span>Ze zahrádky</span></a>
+    <a href="#kuchyne"><span>V kuchyni</span></a>
+    <a href="#spiz"><span>Ze spíže</span></a>
+    <a href="#blog"><span>Blog</span></a>
+    <a href="#omne"><span>O mně</span></a>
+    <a href="#kontakt"><span>Kontakt / Objednávka</span></a>
+  </nav>
+
   <main>
-    <section>
+    <section id="zahradka">
       <h2><span class="flower">🌼</span> Ferinova zahrádka</h2>
       <p>Zde rozkvétají nápady – od šeříkového sirupu po bylinkový čaj. Ferin hlídá každé semínko a s každou kytkou se mazlí víc než s tebou.</p>
     </section>
 
-    <section>
+    <section id="kuchyne">
       <h2>Na plotně 🍞</h2>
       <p>Kváskový chléb, sušenky, dýňová polévka... Tady najdeš všechno, co se peče a vaří pod kočičím dohledem.</p>
     </section>
 
-    <section>
+    <section id="spiz">
       <h2>Ze spíže 🍯</h2>
       <p>Hotové dobroty, marmelády, tinktury a čajové směsi – všechno domácí a s láskou zavařené.</p>
     </section>
 
-    <section>
+    <section id="blog">
       <h2>Blog 📝</h2>
       <p>Příběhy z kuchyně, zahrádky a kočičího života. Jak Ferin rozlil sirup a já to všechno zapsala.</p>
     </section>
@@ -151,6 +186,9 @@
   </footer>
 
   <!-- Malá animovaná kočka -->
-<img src="cat-floating__1_-removebg-preview.png" alt="Kočka" class="cat" onclick="alert('Mňau! 🐱')">
+  <img src="cat-floating__1_-removebg-preview.png" alt="Kočka" class="cat" onclick="alert('Mňau! 🐱')">
 </body>
 </html>
+"""
+
+with open("/mnt/data/uferina-finalni-kod.html", "w", encoding="utf-8") as f
