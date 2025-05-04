@@ -13,20 +13,16 @@
       color: #4a3f35;
       margin: 0;
       padding: 0;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
     }
     header {
       text-align: center;
       padding: 2rem;
       background-color: #fffaf6;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      position: relative;
     }
     header img {
       max-width: 150px;
       border-radius: 50%;
-      animation: fadeIn 2s ease-in-out;
     }
     h1 {
       font-size: 2.5rem;
@@ -44,9 +40,6 @@
       gap: 1rem;
       background-color: #f8f2ec;
       padding: 1rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
     }
     nav a {
       text-decoration: none;
@@ -56,101 +49,71 @@
       border-radius: 1rem;
       background-color: #fffaf6;
       transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
     }
-    nav a::after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
+    nav a:hover {
       background-color: #f0e5db;
-      top: 0;
-      left: -100%;
-      transition: left 0.3s ease;
-      z-index: 0;
-    }
-    nav a:hover::after {
-      left: 0;
-    }
-    nav a span {
-      position: relative;
-      z-index: 1;
     }
     main {
-      padding: 2rem;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    section {
-      margin-bottom: 2rem;
-      animation: fadeInUp 1.5s ease-in-out;
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
     }
     h2 {
       color: #a05252;
-      border-bottom: 1px solid #e1cfcf;
-      padding-bottom: 0.5rem;
+      text-align: center;
+    }
+    .welcome {
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 3rem;
+    }
+    .tiles {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .tile {
+      width: 200px;
+      text-align: center;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      background-color: #fffaf6;
+      transition: transform 0.3s ease;
+    }
+    .tile:hover {
+      transform: scale(1.05);
+    }
+    .tile img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+    .tile h3 {
+      margin: 0;
+      padding: 1rem;
+      font-size: 1.1rem;
+      color: #7d5a5a;
     }
     footer {
       text-align: center;
       padding: 1rem;
       background-color: #eee4dc;
       font-size: 0.9rem;
-    }
-    a {
-      color: #a05252;
-      text-decoration: none;
-    }
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    li::before {
-      content: "🌸 ";
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .flower {
-      display: inline-block;
-      animation: bloom 3s infinite alternate ease-in-out;
-    }
-    @keyframes bloom {
-      from { transform: scale(0.9) rotate(-5deg); opacity: 0.8; }
-      to { transform: scale(1.1) rotate(5deg); opacity: 1; }
-    }
-    .cat {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 60px;
-      cursor: pointer;
-      animation: bounce 3s infinite;
-      transition: transform 0.3s ease;
-    }
-    .cat:hover {
-      transform: scale(1.2) rotate(-10deg);
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="ferin-header.png" alt="Ferin" style="max-width: 160px; display: block; margin: 0 auto 1rem;">
+    <img src="ferin-header.png" alt="Ferin">
     <h1>U Ferina</h1>
     <p class="subtitle">Výrobky s láskou – co vyrostlo pod tlapkami a vařečkou 🐾</p>
   </header>
 
   <nav>
-    <a href="#home"><span>Domů</span></a>
+    <a href="index.html">Domů</a>
     <a href="zahradka.html">Ze zahrádky</a>
     <a href="kuchyne.html">V kuchyni</a>
     <a href="spiz.html">Ze spíže</a>
@@ -160,32 +123,40 @@
   </nav>
 
   <main>
-    <section id="zahradka">
-      <h2><span class="flower">🌼</span> Ferinova zahrádka</h2>
-      <p>Zde rozkvétají nápady – od šeříkového sirupu po bylinkový čaj. Ferin hlídá každé semínko a s každou kytkou se mazlí víc než s tebou.</p>
-    </section>
+    <h2>Vítej U Ferina 🌿</h2>
+    <p class="welcome">Tady kvete šeřík, voní chléb a tlapky kontrolují každé semínko.  
+    Je to místo, kde si věci dělám po svém – s radostí, pomalu a s kočkou na klíně.</p>
 
-    <section id="kuchyne">
-      <h2>Na plotně 🍞</h2>
-      <p>Kváskový chléb, sušenky, dýňová polévka... Tady najdeš všechno, co se peče a vaří pod kočičím dohledem.</p>
-    </section>
-
-    <section id="spiz">
-      <h2>Ze spíže 🍯</h2>
-      <p>Hotové dobroty, marmelády, tinktury a čajové směsi – všechno domácí a s láskou zavařené.</p>
-    </section>
-
-    <section id="blog">
-      <h2>Blog 📝</h2>
-      <p>Příběhy z kuchyně, zahrádky a kočičího života. Jak Ferin rozlil sirup a já to všechno zapsala.</p>
-    </section>
+    <div class="tiles">
+      <div class="tile">
+        <a href="zahradka.html">
+          <img src="img/zahradka.jpg" alt="Zahrádka">
+          <h3>Ze zahrádky</h3>
+        </a>
+      </div>
+      <div class="tile">
+        <a href="kuchyne.html">
+          <img src="img/kuchyne.jpg" alt="Kuchyně">
+          <h3>V kuchyni</h3>
+        </a>
+      </div>
+      <div class="tile">
+        <a href="spiz.html">
+          <img src="img/spiz.jpg" alt="Spíž">
+          <h3>Ze spíže</h3>
+        </a>
+      </div>
+      <div class="tile">
+        <a href="blog.html">
+          <img src="img/blog.jpg" alt="Blog">
+          <h3>Blog</h3>
+        </a>
+      </div>
+    </div>
   </main>
 
   <footer>
     &copy; 2025 U Ferina – Všechna práva vyhrazena 🐾
   </footer>
-
-  <!-- Malá animovaná kočka -->
-  <img src="cat-floating__1_-removebg-preview.png" alt="Kočka" class="cat" onclick="alert('Mňau! 🐱')">
 </body>
 </html>
